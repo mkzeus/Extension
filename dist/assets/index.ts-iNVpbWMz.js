@@ -1,0 +1,1 @@
+import{n as e}from"./linkedin-scrape-B25y-YMi.js";chrome.runtime.onMessage.addListener((t,n,r)=>{if(t?.type===`SCRAPE_VISIBLE_JOBS`){try{let n=t.payload;r(e(n))}catch(e){r({ok:!1,error:e instanceof Error?e.message:`Scrape failed`})}return!0}return!1});

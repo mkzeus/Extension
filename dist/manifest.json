@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "AI Job Copilot",
+  "description": "Find LinkedIn jobs, parse CVs, and generate application answers.",
+  "version": "1.0.0",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "notifications",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.linkedin.com/*",
+    "https://linkedin.com/*"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "AI Job Copilot"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "assets/index.ts-loader-Bl6dm2MQ.js"
+      ],
+      "matches": [
+        "https://*.linkedin.com/jobs/*",
+        "https://linkedin.com/jobs/*"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "https://*.linkedin.com/*",
+        "https://linkedin.com/*"
+      ],
+      "resources": [
+        "assets/linkedin-scrape-B25y-YMi.js",
+        "assets/index.ts-iNVpbWMz.js"
+      ],
+      "use_dynamic_url": false
+    }
+  ]
+}
